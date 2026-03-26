@@ -14,8 +14,6 @@ Configure domain password policies through Group Policy Management (GPO) and ver
 
 ## Step-by-Step Configuration
 
----
-
 ### 1. Start Windows Server and Open Group Policy Management
 Opened Windows Server 2019 virtual machine, navigated through tools and opened Group Policy Management. 
 
@@ -75,6 +73,22 @@ gpupdate /force
 
 ---
 
-### 6. Verify Newly Configured Policy with Password Test
-Attempted to change password of domain user to a short password and received error message indicating updated password policy configuration was updated. Secondly, attempted to change password following the update password policy of complexity and minimum password length 
+### 6. Verify Newly Configured Group Policy with Password Test
+Attempted to change password of domain user to a short password and received error message.  Secondly, attempted to change password following the updated password policy of complexity and minimum password length which succeeded. This test indicated the GPO password policy configuration was successfully applied on the client machine. 
 
+Weak password attempt rejected
+
+![Screenshot 7](7-short-password-failed.png)
+
+Successful password change with compliant password
+
+![Screenshot 8](8-password-change-success.png)
+
+---
+
+### Key Takeaway
+- Password policy was configured through Group Policy Management
+- Lockout settings were configured
+- Group Policy was updated successfully
+- Policy application was verified with password change on a domain user
+- Password rules were validated through testing
