@@ -38,11 +38,17 @@ Right clicked on "Default Domain Policy" and navigated through Edit → Computer
 ![Screenshot 4](4-password-policy-update.png)
 
 **Password History:** prevents reuse of previous passwords
+
 **Maximum Password Age:** forces password changes every (#) days
+
 **Minimum Password Age:** prevents immediate password changes to bypass history
+
 **Minimum Password Length:** requires longer passwords for stronger security
+
 **Minimum Password Length Audit:** not enforcing a minimum password length
+
 **Password Must Meet Complexity Requirements:** requires a mix of character types to block simple passwords
+
 **Store Passwords Using Reversible Encryption:** ensures passwords are securely hashed and not reversible
 
 ---
@@ -55,8 +61,11 @@ Opened "Account Lockout Policy" and configured policies.
 ![Screenshot 5](5-account-lockout-policy.png)
 
 **Account Lockout Duration:** amount of time the account remains locked before it automatically unlocks 
+
 **Account Lockout Threshold:** number of failed logon attempts allowed before account is locked
+
 **Allow Administrator Account Lockout:** determines if built-in Administrator account can be locked after failed logon attempts
+
 **Reset Account Lockout Counter After:** time after failed logon attempts are reset to zero
 
 ---
