@@ -15,7 +15,7 @@ Configure domain password policies through Group Policy Management (GPO) and ver
 ## Step-by-Step Configuration
 
 ### 1. Start Windows Server and Open Group Policy Management
-Opened Windows Server 2019 virtual machine, navigated through tools and opened Group Policy Management. 
+Opened Windows Server 2019 and launched Group Policy Management from Server Manager.
 
 ![Screenshot 1](1-windows-server.png)
 
@@ -24,7 +24,7 @@ Opened Windows Server 2019 virtual machine, navigated through tools and opened G
 ---
 
 ### 2. Locate the Default Domain Policy
-In GPO, navigated through Forest → Domain → Default Domain Policy where all policies are located for users and computers.
+In GPO, navigated through Forest → Domain → Default Domain Policy where domain-wide policies for users and computers are managed. 
 
 ![Screenshot 3](3-default-domain-policy.png)
 
@@ -37,13 +37,13 @@ Right clicked on "Default Domain Policy" and navigated through Edit → Computer
 
 ![Screenshot 4](4-password-policy-update.png)
 
-Password History: prevents reuse of previous passwords
-Maximum Password Age: forces password changes every (#) days
-Minimum Password Age: prevents immediate password changes to bypass history
-Minimum Password Length: requires longer passwords for stronger security
-Minimum Password Length Audit: not enforcing a minimum password length
-Password Must Meet Complexity Requirements: requires a mix of character types to block simple passwords
-Store Passwords Using Reversible Encryption: ensures passwords are securely hashed and not reversible
+**Password History:** prevents reuse of previous passwords
+**Maximum Password Age:** forces password changes every (#) days
+**Minimum Password Age:** prevents immediate password changes to bypass history
+**Minimum Password Length:** requires longer passwords for stronger security
+**Minimum Password Length Audit:** not enforcing a minimum password length
+**Password Must Meet Complexity Requirements:** requires a mix of character types to block simple passwords
+**Store Passwords Using Reversible Encryption:** ensures passwords are securely hashed and not reversible
 
 ---
 
@@ -54,15 +54,15 @@ Opened "Account Lockout Policy" and configured policies.
 
 ![Screenshot 5](5-account-lockout-policy.png)
 
-Account Lockout Duration: amount of time the account remains locked before automatically unlocks 
-Account Lockout Threshold: number of failed logon attempts allowed before account is locked
-Allow Administrator Account Lockout: determines if built-in Administrator account can be locked after failed logon attempts
-Reset Account Lockout Counter After: time after failed logon attempts are reset to zero
+**Account Lockout Duration:** amount of time the account remains locked before it automatically unlocks 
+**Account Lockout Threshold:** number of failed logon attempts allowed before account is locked
+**Allow Administrator Account Lockout:** determines if built-in Administrator account can be locked after failed logon attempts
+**Reset Account Lockout Counter After:** time after failed logon attempts are reset to zero
 
 ---
 
 ### 5. Apply the Policy
-Logged on to a domain user account client machine and entered `gpupdate /force` on the Command Prompt to update the password and account lockout policy newly configured. 
+Logged on to a domain-joined client machine and ran `gpupdate /force` to apply the newly configured GPO settings. 
 
 **Command Used**
 ```
@@ -74,7 +74,7 @@ gpupdate /force
 ---
 
 ### 6. Verify Newly Configured Group Policy with Password Test
-Attempted to change password of domain user to a short password and received error message.  Secondly, attempted to change password following the updated password policy of complexity and minimum password length which succeeded. This test indicated the GPO password policy configuration was successfully applied on the client machine. 
+Attempted to change password of domain user to a short password and received error message.  Secondly, attempted to change password following the updated password policy of complexity and minimum password length which succeeded. This confirmed that the GPO password settings were successfully applied and enforced on the client machine. 
 
 Weak password attempt rejected
 
@@ -87,8 +87,7 @@ Successful password change with compliant password
 ---
 
 ### Key Takeaway
-- Password policy was configured through Group Policy Management
-- Lockout settings were configured
-- Group Policy was updated successfully
-- Policy application was verified with password change on a domain user
-- Password rules were validated through testing
+- Configured domain password and account lockout policies using Group Policy
+- Applied policies to a domain-joined system using `gpupdate`
+- Validated policy enforcement through password testing
+- Demonstrated understanding of password security controls and policy enforcement in Active Directory environments
