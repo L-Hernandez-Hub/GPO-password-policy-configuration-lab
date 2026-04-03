@@ -17,16 +17,16 @@ Configure domain password policies through Group Policy Management (GPO) and ver
 ### 1. Start Windows Server and Open Group Policy Management
 Opened Windows Server 2019 and launched Group Policy Management from Server Manager.
 
-![Screenshot 1](1-windows-server.png)
+![Screenshot 1](Screenshots/1-windows-server.png)
 
-![Screenshot 2](2-gpo.png)
+![Screenshot 2](Screenshots/2-gpo.png)
 
 ---
 
 ### 2. Locate the Default Domain Policy
 In GPO, navigated through Forest → Domain → Default Domain Policy where domain-wide policies for users and computers are managed. 
 
-![Screenshot 3](3-default-domain-policy.png)
+![Screenshot 3](Screenshots/3-default-domain-policy.png)
 
 ---
 
@@ -35,7 +35,7 @@ Right clicked on "Default Domain Policy" and navigated through Edit → Computer
 
 **Configuration:**
 
-![Screenshot 4](4-password-policy-update.png)
+![Screenshot 4](Screenshots/4-password-policy-update.png)
 
 **Password History:** prevents reuse of previous passwords
 
@@ -58,7 +58,7 @@ Opened "Account Lockout Policy" and configured policies.
 
 **Configuration:**
 
-![Screenshot 5](5-account-lockout-policy.png)
+![Screenshot 5](Screenshots/5-account-lockout-policy.png)
 
 **Account Lockout Duration:** amount of time the account remains locked before it automatically unlocks 
 
@@ -78,7 +78,7 @@ Logged on to a domain-joined client machine and ran `gpupdate /force` to apply t
 gpupdate /force
 ```
 
-![Screenshot 6](6-gpupdate-force.png)
+![Screenshot 6](Screenshots/6-gpupdate-force.png)
 
 ---
 
@@ -87,11 +87,11 @@ Attempted to change password of domain user to a short password and received err
 
 Weak password attempt rejected
 
-![Screenshot 7](7-short-password-failed.png)
+![Screenshot 7](Screenshots/7-short-password-failed.png)
 
 Successful password change with compliant password
 
-![Screenshot 8](8-password-change-success.png)
+![Screenshot 8](Screenshots/8-password-change-success.png)
 
 ---
 
